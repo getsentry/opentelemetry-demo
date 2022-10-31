@@ -15,7 +15,7 @@
 // Npm
 const grpc = require('@grpc/grpc-js')
 const protoLoader = require('@grpc/proto-loader')
-const health = require('grpc-health-check')
+const health = require('grpc-js-health-check')
 const opentelemetry = require('@opentelemetry/api')
 const pino = require('pino')
 
