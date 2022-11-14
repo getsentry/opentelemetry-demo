@@ -68,6 +68,12 @@ build-and-push-ghcr:
 	docker compose --env-file .ghcr.env -f docker-compose.yml build
 	docker compose --env-file .ghcr.env -f docker-compose.yml push
 
+.PHONY: build-and-push-gcr
+# Needs gcr credentials setup (TODO RaduW fix this?)
+build-and-push-sentry-gcr:
+	docker compose  -f docker-compose.yml build
+	docker compose  -f docker-compose.yml push
+
 .PHONY: build-env-file
 build-env-file:
 	cp .env .dockerhub.env

@@ -1,0 +1,57 @@
+components:
+  adService:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  cartService:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  checkoutService:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  currencyService:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  emailService:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  featureflagService:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  frontend:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  frontendProxy:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+
+  loadgenerator:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  paymentService:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  productCatalogService:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  recommendationService:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  shippingService:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+
+  quoteService:
+    imageOverride:
+      repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"

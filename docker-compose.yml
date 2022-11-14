@@ -28,6 +28,7 @@ services:
   # Ad service
   adservice:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-adservice
+    platform: linux/amd64
     container_name: ad-service
     build:
       context: ./
@@ -54,6 +55,7 @@ services:
   # Cart service
   cartservice:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-cartservice
+    platform: linux/amd64
     container_name: cart-service
     build:
       context: ./
@@ -81,6 +83,7 @@ services:
   # Checkout service
   checkoutservice:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-checkoutservice
+    platform: linux/amd64
     container_name: checkout-service
     build:
       context: ./
@@ -119,6 +122,7 @@ services:
   # Currency service
   currencyservice:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-currencyservice
+    platform: linux/amd64
     container_name: currency-service
     build:
       context: ./src/currencyservice
@@ -145,6 +149,7 @@ services:
   # Email service
   emailservice:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-emailservice
+    platform: linux/amd64
     container_name: email-service
     build:
       context: ./src/emailservice
@@ -169,6 +174,7 @@ services:
   # Frontend
   frontend:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-frontend
+    platform: linux/amd64
     container_name: frontend
     build:
       context: ./
@@ -212,6 +218,7 @@ services:
 
   frontendproxy:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-frontendproxy
+    platform: linux/amd64
     build:
       context: ./
       dockerfile: src/frontendproxy/Dockerfile
@@ -241,6 +248,7 @@ services:
 
   loadgenerator:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-loadgenerator
+    platform: linux/amd64
     container_name: load-generator
     build:
       context: ./
@@ -270,6 +278,7 @@ services:
   # Payment service
   paymentservice:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-paymentservice
+    platform: linux/amd64
     container_name: payment-service
     build:
       context: ./
@@ -294,6 +303,7 @@ services:
   # Product Catalog service
   productcatalogservice:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-productcatalogservice
+    platform: linux/amd64
     container_name: product-catalog-service
     build:
       context: ./
@@ -319,6 +329,7 @@ services:
   # Quote service
   quoteservice:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-quoteservice
+    platform: linux/amd64
     container_name: quoteservice
     build:
       context: ./
@@ -348,6 +359,7 @@ services:
   # Recommendation service
   recommendationservice:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-recommendationservice
+    platform: linux/amd64
     container_name: recommendation-service
     build:
       context: ./
@@ -381,6 +393,7 @@ services:
   # Shipping service
   shippingservice:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-shippingservice
+    platform: linux/amd64
     container_name: shipping-service
     build:
       context: ./
@@ -406,6 +419,7 @@ services:
   # Feature Flag service
   featureflagservice:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-featureflagservice
+    platform: linux/amd64
     container_name: feature-flag-service
     build:
       context: ./src/featureflagservice
@@ -538,6 +552,7 @@ services:
   # Frontend Tests
   frontendTests:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-frontend-tests
+    platform: linux/amd64
     container_name: frontend-tests
     build:
       context: ./
@@ -557,6 +572,7 @@ services:
   # Integration Tests
   integrationTests:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}-integrationTests
+    platform: linux/amd64
     container_name: integrationTests
     profiles:
       - tests
