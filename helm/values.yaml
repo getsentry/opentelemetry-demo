@@ -2,56 +2,70 @@ components:
   adService:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   cartService:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   checkoutService:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   currencyService:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   emailService:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   featureflagService:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   frontend:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   frontendProxy:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
 
   loadgenerator:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   paymentService:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   productCatalogService:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   recommendationService:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   shippingService:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
 
   quoteService:
     imageOverride:
       repository: "europe-west3-docker.pkg.dev/sentry-st-testing/public/open-telemetry-demo"
+      pullPolicy: Always
