@@ -2,7 +2,7 @@
 
 This folder contains additional configuration for deploying the OpenTelemetry Shop Demo on Sentry's infrastructure. We're using [the official OpenTelemetry Helm chart](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-demo) to deploy the demo on our Kubernetes cluster.
 
-The demo is deployed here: https://otel-demo.testa.getsentry.net/ (internal-only access at the moment).
+The demo is available here: https://otel-demo.testa.getsentry.net/ (internal-only access at the moment).
 
 A list of all resources available as part of the demo:
 
@@ -21,7 +21,7 @@ You can edit the following files in this directory:
 
 ## (Re)Deploying Changes
 
-At the moment we maintain a single demo environment, reachable via a fixed URL. The environment can be redeployed via our [instance of Argo Workflows](https://run.testa.getsentry.net/). It works as follows:
+At the moment we maintain a single demo environment, reachable via a fixed URL (https://otel-demo.testa.getsentry.net/). The environment can be redeployed via our [instance of Argo Workflows](https://run.testa.getsentry.net/). It works as follows:
 
 1. Go to https://run.testa.getsentry.net/ (internal-only).
 2. Click "+ Submit New Workflow" in the upper left corner.
