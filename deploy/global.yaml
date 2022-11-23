@@ -1,3 +1,4 @@
+# Overrides for opentelemetry-demo Helm chart (https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-demo)
 ---
 observability:
   otelcol:
