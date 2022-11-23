@@ -28,13 +28,13 @@ grafana:
 
 # TODO: add resource requests/limits and tolerations for all components here
 components:
-  adService:
-  cartService:
+  adService: {}
+  cartService: {}
   checkoutService:
   currencyService:
   emailService:
   featureflagService:
-  frontend:
+  frontend: {}
   paymentService:
   productCatalogService:
   quoteService:
