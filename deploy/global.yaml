@@ -36,7 +36,7 @@ components:
   featureflagService:
   frontend:
   paymentService:
-  productcatalogService:
+  productCatalogService:
   quoteService:
   recommendationService:
   shippingService:
