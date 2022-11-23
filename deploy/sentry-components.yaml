@@ -4,14 +4,14 @@ components:
     envOverrides:
       - name: SENTRY_DSN
         value: "test"
-  cartService:
-  # checkoutService:
-  # currencyService:
-  # emailService:
-  # featureflagService:
-  # frontend:
-  # paymentService:
-  # productCatalogService:
-  # quoteService:
-  # recommendationService:
-  # shippingService:
+  cartService: {}
+  # checkoutService: {}
+  # currencyService: {}
+  # emailService: {}
+  # featureflagService: {}
+  # frontend: {}
+  # paymentService: {}
+  # productCatalogService: {}
+  # quoteService: {}
+  # recommendationService: {}
+  # shippingService: {}

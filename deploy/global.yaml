@@ -30,13 +30,13 @@ grafana:
 components:
   adService: {}
   cartService: {}
-  checkoutService:
-  currencyService:
-  emailService:
-  featureflagService:
+  checkoutService: {}
+  currencyService: {}
+  emailService: {}
+  featureflagService: {}
   frontend: {}
-  paymentService:
-  productCatalogService:
-  quoteService:
-  recommendationService:
-  shippingService:
+  paymentService: {}
+  productCatalogService: {}
+  quoteService: {}
+  recommendationService: {}
+  shippingService: {}
