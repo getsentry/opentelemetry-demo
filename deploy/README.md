@@ -29,8 +29,8 @@ At the moment we maintain a single demo environment, reachable via a fixed URL. 
 4. Specify the git revision (branch, commit, etc.) of https://github.com/getsentry/opentelemetry-demo repository that you want to deploy.
 5. Click "+ Submit".
 
-
+<img src="https://user-images.githubusercontent.com/1120468/203613869-d6cb32f5-d226-4392-94e5-80f3b73ce360.png" height="400" />
 
 In a few minutes the environment will be recreated.
 
-Note: at the moment we don't persist any data between redeploys.
+**Note**: at the moment we don't persist any data between redeploys.
