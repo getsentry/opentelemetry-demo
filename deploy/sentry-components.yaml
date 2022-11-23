@@ -1,0 +1,17 @@
+# To enable, uncomment:
+components:
+  adService:
+    envOverrides:
+      - name: SENTRY_DSN
+        value: "test"
+  cartService:
+  # checkoutService:
+  # currencyService:
+  # emailService:
+  # featureflagService:
+  # frontend:
+  # paymentService:
+  # productcatalogService:
+  # quoteService:
+  # recommendationService:
+  # shippingService:
