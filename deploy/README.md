@@ -2,7 +2,15 @@
 
 This folder contains additional configuration for deploying the OpenTelemetry Shop Demo on Sentry's infrastructure. We're using [the official OpenTelemetry Helm chart](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-demo) to deploy the demo on our Kubernetes cluster.
 
-The demo will be deployed here: https://otel-demo.testa.getsentry.net/ (internal only at the moment)
+The demo will be deployed here: https://otel-demo.testa.getsentry.net/ (internal only at the moment).
+
+A list of all resources available as part of the demo:
+
+* Webstore: https://otel-demo.testa.getsentry.net/
+* Grafana: https://otel-demo.testa.getsentry.net/grafana/
+* Feature Flags UI: https://otel-demo.testa.getsentry.net/feature/
+* Load Generator UI: https://otel-demo.testa.getsentry.net/loadgen/
+* Jaeger UI: https://otel-demo.testa.getsentry.net/jaeger/ui/
 
 ## Configuration Files
 
