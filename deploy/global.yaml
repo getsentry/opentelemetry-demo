@@ -29,13 +29,34 @@ grafana:
 
 # TODO: add resource requests/limits and tolerations for all components here
 components:
-  adService: {}
-  cartService: {}
-  checkoutService: {}
-  currencyService: {}
-  emailService: {}
-  featureflagService: {}
-  frontend: {}
+  adService:
+    resources:
+      requests:
+        cpu: 50m
+  cartService:
+    resources:
+      requests:
+        cpu: 50m
+  checkoutService:
+    resources:
+      requests:
+        cpu: 50m
+  currencyService:
+    resources:
+      requests:
+        cpu: 50m
+  emailService:
+    resources:
+      requests:
+        cpu: 50m
+  featureflagService:
+    resources:
+      requests:
+        cpu: 50m
+  frontend:
+    resources:
+      requests:
+        cpu: 50m
   frontendProxy:
     resources:
       requests:
@@ -43,8 +64,23 @@ components:
         memory: 100Mi
       limits:
         memory: 100Mi
-  paymentService: {}
-  productCatalogService: {}
-  quoteService: {}
-  recommendationService: {}
-  shippingService: {}
+  paymentService:
+    resources:
+      requests:
+        cpu: 50m
+  productCatalogService:
+    resources:
+      requests:
+        cpu: 50m
+  quoteService:
+    resources:
+      requests:
+        cpu: 50m
+  recommendationService:
+    resources:
+      requests:
+        cpu: 50m
+  shippingService:
+    resources:
+      requests:
+        cpu: 50m
