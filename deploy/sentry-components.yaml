@@ -8,6 +8,7 @@
 # dictionary key should be "{}" (e.g. "adService: {}"), and NOT empty/null.
 ---
 components:
+  {}
   # adService:
   #   envOverrides:
   #     - name: SENTRY_DSN
