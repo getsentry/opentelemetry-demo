@@ -1,6 +1,6 @@
 const Sentry = require("@sentry/node");
 
-export function initSentry() {
+function initSentry() {
   // Make sure to call `Sentry.init` BEFORE initializing the OpenTelemetry SDK
   Sentry.init({
     dsn: process.env.SENTRY_DSN,
@@ -10,3 +10,7 @@ export function initSentry() {
     // ...
   });
 }
+
+module.exports = {
+  initSentry,
+};
