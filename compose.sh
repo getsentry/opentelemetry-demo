@@ -7,4 +7,4 @@ cd "$(dirname "$(realpath "$0")")"
 # Merge env files
 cat .env .env.sentry > .env.merged
 
-docker-compose --env-file .env.merged up "$@"
+docker-compose --env-file .env.merged "$@"
