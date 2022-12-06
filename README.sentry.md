@@ -20,7 +20,7 @@ Compose configuration will be read (and overridden) in the following order:
 2. `docker-compose.sentry.yml`
 3. `docker-compose.override.yml`
 
-So the values in `docker-compose.override.yml` will "win" over the same values in the other files.
+So the values in `docker-compose.override.yml` will "win" over the corresponding values in the other files.
 
 ## Deploying the Demo
 
