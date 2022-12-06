@@ -49,5 +49,6 @@ src/shippingservice/target/
 /src/recommendationservice/demo_pb2*.py
 /src/shippingservice/proto/
 
-# Ignore docker compose override files
-/docker-compose.override.yaml
+.env.sentry
+.env.merged
+docker-compose.override.yml
