@@ -30,4 +30,4 @@ RUN python -m grpc_tools.protoc -I=./proto/ --python_out=./ --grpc_python_out=./
 
 EXPOSE ${RECOMMENDATION_SERVICE_PORT}
 
-ENTRYPOINT [ "./docker-entrypoint.sh" ]
+ENTRYPOINT [ "opentelemetry-instrument", "python", "recommendation_server.py" ]

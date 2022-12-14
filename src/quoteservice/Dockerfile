@@ -26,4 +26,5 @@ RUN echo "ServerName quoteservice" >> /etc/apache2/apache2.conf
 
 EXPOSE ${QUOTE_SERVICE_PORT}
 
-ENTRYPOINT [ "./docker-entrypoint.sh" ]
+ENTRYPOINT sed -i "s/\b80\b/${QUOTE_SERVICE_PORT}/g" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf \
+    && apache2-foreground
