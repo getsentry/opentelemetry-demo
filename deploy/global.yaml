@@ -37,7 +37,18 @@ jaeger:
       limits:
         memory: 350Mi
 
-# TODO: add resource requests/limits and tolerations for all components here
+default:
+  # Run all demo components on a separate node pool
+  schedulingRules:
+    nodeSelector:
+      nodepool.sentry.io/name: otel-demo
+    tolerations:
+      - key: "nodepool-dedicated"
+        operator: "Equal"
+        value: "otel-demo"
+        effect: "NoSchedule"
+
+# Demo components
 components:
   adService:
     resources:
