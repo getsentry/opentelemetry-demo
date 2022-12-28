@@ -9,11 +9,6 @@ observability:
     enabled: true
   jaeger:
     enabled: true
-    resources:
-      requests:
-        cpu: 50m
-      limits:
-        memory: 350Mi
 
 prometheus:
   rbac:
@@ -33,6 +28,14 @@ grafana:
   rbac:
     create: false
     pspEnabled: false
+
+jaeger:
+  allInOne:
+    resources:
+      requests:
+        cpu: 50m
+      limits:
+        memory: 350Mi
 
 # TODO: add resource requests/limits and tolerations for all components here
 components:
