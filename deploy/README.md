@@ -4,6 +4,7 @@ This folder contains additional configuration for deploying the
 OpenTelemetry Shop Demo on Sentry's infrastructure. We're using
 [the official OpenTelemetry Helm chart](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-demo)
 to deploy the demo on our Kubernetes cluster.
+
 ## Available Resources
 
 We have two environments at the moment, each having its own set of supporting services.
