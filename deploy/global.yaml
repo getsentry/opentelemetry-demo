@@ -11,6 +11,7 @@ observability:
     enabled: true
 
 prometheus:
+  # TODO(tonyo): run in the otel nodepool
   rbac:
     create: false
   serverFiles:
@@ -25,11 +26,13 @@ prometheus:
             - targets:
                 - "otel-demo-otelcol:8888"
 grafana:
+  # TODO(tonyo): run in the otel nodepool
   rbac:
     create: false
     pspEnabled: false
 
 jaeger:
+  # TODO(tonyo): run in the otel nodepool
   allInOne:
     resources:
       requests:

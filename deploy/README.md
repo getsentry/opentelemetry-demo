@@ -4,7 +4,6 @@ This folder contains additional configuration for deploying the
 OpenTelemetry Shop Demo on Sentry's infrastructure. We're using
 [the official OpenTelemetry Helm chart](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-demo)
 to deploy the demo on our Kubernetes cluster.
-
 ## Available Resources
 
 We have two environments at the moment, each having its own set of supporting services.
@@ -35,6 +34,8 @@ This environment can be used for demos, and should be considered "stable".
 
 You can edit the following files in this directory:
 
+- [`meta.yaml`](./meta.yaml) -- contains various meta configuration about the
+  deployment, e.g. the currently used version of the Helm chart.
 - [`sentry-components.yaml`](./sentry-components.yaml) -- a list of components
   that have Sentry instrumentation. If some service there is commented out, that
   means that the vanilla version of the service (meaning, a prebuilt Docker image)
