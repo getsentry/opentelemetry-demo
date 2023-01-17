@@ -12,8 +12,8 @@ const { SentrySpanProcessor, SentryPropagator } = require('@sentry/opentelemetry
 const sdk = new opentelemetry.NodeSDK({
   traceExporter: new OTLPTraceExporter(),
   instrumentations: [getNodeAutoInstrumentations()],
-  spanProcessor: new SentrySpanProcessor(),
-  textMapPropagator: new SentryPropagator(),
+  // spanProcessor: new SentrySpanProcessor(),
+  // textMapPropagator: new SentryPropagator(),
   resourceDetectors: [
     containerDetector,
     envDetector,

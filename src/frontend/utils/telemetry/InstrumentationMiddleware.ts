@@ -38,6 +38,7 @@ const InstrumentationMiddleware = (handler: NextApiHandler): NextApiHandler => {
     } catch (error) {
       span.recordException(error as Exception);
       span.setStatus({ code: SpanStatusCode.ERROR });
+      console.log('ERROR', error);
       throw error;
     } finally {
       span.end();
