@@ -61,7 +61,7 @@ services:
   # Recommendation service
   recommendationservice:
     environment:
-      - SENTRY_DSN=${SENTRY_DSN_RECOMMENDATINOSERVICE}
+      - SENTRY_DSN=${SENTRY_DSN_RECOMMENDATIONSERVICE}
 
   # Shipping service
   shippingservice:
