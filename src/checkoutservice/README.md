@@ -7,9 +7,7 @@ This service provides checkout services for the application.
 To build the protos and the service binary, run:
 
 ```sh
-# src/
-protoc -I ../../pb/ ../../pb/demo.proto --go_out=./ --go-grpc_out=./
-# src/checkoutservice
+protoc -I ../pb/ ../pb/demo.proto --go_out=./ --go-grpc_out=./
 go build -o /go/bin/checkoutservice/ ./
 ```
 
