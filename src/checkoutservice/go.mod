@@ -22,7 +22,6 @@ require (
 )
 
 require (
-	cloud.google.com/go/compute v1.13.0 // indirect
 	github.com/cenkalti/backoff/v4 v4.2.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/eapache/go-resiliency v1.3.0 // indirect
@@ -58,7 +57,6 @@ require (
 	go.opentelemetry.io/otel/sdk v1.11.2
 	golang.org/x/sys v0.4.0 // indirect
 	golang.org/x/text v0.6.0 // indirect
-	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20230113154510-dbe35b8444a5 // indirect
 )
 
