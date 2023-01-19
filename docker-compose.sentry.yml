@@ -23,11 +23,6 @@ services:
       - SENTRY_DSN=${SENTRY_DSN_CHECKOUTSERVICE}
       - SENTRY_ENVIRONMENT=${SENTRY_ENVIRONMENT}
 
-  # Checkout service
-  checkoutservice:
-    environment:
-      - SENTRY_DSN=${SENTRY_DSN_CHECKOUTSERVICE}
-
   # Currency service
   currencyservice:
     environment:
