@@ -136,10 +136,10 @@ if __name__ == "__main__":
         dsn=must_map_env("SENTRY_DSN"),
         instrumenter="otel",
         traces_sample_rate=1.0,
-        _experiments={
-            "profiles_sample_rate": 1.0,
-        },
-        debug=True,
+        # _experiments={
+        #     "profiles_sample_rate": 1.0,
+        # },
+        debug=False,
     )
 
     # Tell OTel to send data also to Sentry
