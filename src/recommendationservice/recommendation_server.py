@@ -134,8 +134,11 @@ if __name__ == "__main__":
     # Initialize Sentry Tracing
     sentry_sdk.init(
         dsn=must_map_env("SENTRY_DSN"),
-        traces_sample_rate=1.0,
         instrumenter="otel",
+        traces_sample_rate=1.0,
+        _experiments={
+            "profiles_sample_rate": 1.0,
+        },
         debug=True,
     )
 
