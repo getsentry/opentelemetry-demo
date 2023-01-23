@@ -24,7 +24,11 @@ import grpc
 from opentelemetry import trace, metrics
 from opentelemetry.propagate import set_global_textmap
 import sentry_sdk
+from sentry_sdk.consts import OP, TRANSACTION_SOURCE_COMPONENT
 from sentry_sdk.integrations.opentelemetry import SentrySpanProcessor, SentryPropagator
+from sentry_sdk.tracing import Transaction
+from sentry_sdk.profiler import start_profiling
+
 
 
 # Local
@@ -43,18 +47,22 @@ first_run = True
 
 class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
     def ListRecommendations(self, request, context):
-        prod_list = get_product_list(request.product_ids)
-        span = trace.get_current_span()
-        span.set_attribute("app.products_recommended.count", len(prod_list))
-        logger.info(f"[Recv ListRecommendations] product_ids={prod_list}")
-        # build and return response
-        response = demo_pb2.ListRecommendationsResponse()
-        response.product_ids.extend(prod_list)
+        transaction = Transaction(op=OP.FUNCTION)
+        transaction.name = "ListRecommendationsXXX"
+        transaction.source = TRANSACTION_SOURCE_COMPONENT
+        with start_profiling(transaction):
+            prod_list = get_product_list(request.product_ids)
+            span = trace.get_current_span()
+            span.set_attribute("app.products_recommended.count", len(prod_list))
+            logger.info(f"[Recv ListRecommendations] product_ids={prod_list}")
+            # build and return response
+            response = demo_pb2.ListRecommendationsResponse()
+            response.product_ids.extend(prod_list)
 
-        # Collect metrics for this service
-        rec_svc_metrics["app_recommendations_counter"].add(len(prod_list), {'recommendation.type': 'catalog'})
+            # Collect metrics for this service
+            rec_svc_metrics["app_recommendations_counter"].add(len(prod_list), {'recommendation.type': 'catalog'})
 
-        return response
+            return response
 
     def Check(self, request, context):
         return health_pb2.HealthCheckResponse(
@@ -137,6 +145,9 @@ if __name__ == "__main__":
         instrumenter="otel",
         traces_sample_rate=1.0,
         debug=False,
+        _experiments={
+            "profiles_sample_rate": 1.0,
+        },
     )
 
     # Tell OTel to send data also to Sentry
