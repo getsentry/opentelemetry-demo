@@ -24,9 +24,9 @@ import grpc
 from opentelemetry import trace, metrics
 from opentelemetry.propagate import set_global_textmap
 import sentry_sdk
-from sentry_sdk.consts import OP, TRANSACTION_SOURCE_COMPONENT
+from sentry_sdk.consts import OP
 from sentry_sdk.integrations.opentelemetry import SentrySpanProcessor, SentryPropagator
-from sentry_sdk.tracing import Transaction
+from sentry_sdk.tracing import Transaction, TRANSACTION_SOURCE_COMPONENT
 from sentry_sdk.profiler import start_profiling
 
 
