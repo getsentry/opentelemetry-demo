@@ -33,7 +33,7 @@ require (
 )
 
 require (
-	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.29.0
+	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.37.0
 	go.opentelemetry.io/otel v1.11.2
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.4.1
 	golang.org/x/sys v0.4.0 // indirect
