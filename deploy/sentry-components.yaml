@@ -11,13 +11,13 @@
 #
 ---
 components:
-  # accountingService: {}
+  accountingService: {}
 
   adService: {}
 
   # cartService: {}
 
-  # checkoutService: {}
+  checkoutService: {}
 
   # currencyService: {}
 
@@ -31,7 +31,7 @@ components:
 
   paymentService: {}
 
-  # productCatalogService: {}
+  productCatalogService: {}
 
   # quoteService: {}
 
