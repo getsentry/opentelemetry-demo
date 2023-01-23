@@ -8,6 +8,8 @@ function initSentry() {
     dsn: process.env.SENTRY_DSN,
     tracesSampleRate: 1.0,
     profilesSampleRate: 1.0,
+    // Add local variables to exceptions
+    includeLocalVariables: true,
     // set the instrumenter to use OpenTelemetry instead of Sentry
     instrumenter: "otel",
     integrations: [new ProfilingIntegration()],
