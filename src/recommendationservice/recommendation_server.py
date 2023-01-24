@@ -24,11 +24,11 @@ import grpc
 from opentelemetry import trace, metrics
 from opentelemetry.propagate import set_global_textmap
 import sentry_sdk
+from sentry_sdk import Hub
 from sentry_sdk.consts import OP
 from sentry_sdk.integrations.opentelemetry import SentrySpanProcessor, SentryPropagator
-from sentry_sdk.tracing import Transaction, TRANSACTION_SOURCE_COMPONENT
+from sentry_sdk.tracing import TRANSACTION_SOURCE_COMPONENT
 from sentry_sdk.profiler import start_profiling
-
 
 
 # Local
@@ -47,22 +47,18 @@ first_run = True
 
 class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
     def ListRecommendations(self, request, context):
-        transaction = Transaction(op=OP.FUNCTION)
-        transaction.name = "ListRecommendationsXXX"
-        transaction.source = TRANSACTION_SOURCE_COMPONENT
-        with start_profiling(transaction):
-            prod_list = get_product_list(request.product_ids)
-            span = trace.get_current_span()
-            span.set_attribute("app.products_recommended.count", len(prod_list))
-            logger.info(f"[Recv ListRecommendations] product_ids={prod_list}")
-            # build and return response
-            response = demo_pb2.ListRecommendationsResponse()
-            response.product_ids.extend(prod_list)
+        prod_list = get_product_list(request.product_ids)
+        span = trace.get_current_span()
+        span.set_attribute("app.products_recommended.count", len(prod_list))
+        logger.info(f"[Recv ListRecommendations] product_ids={prod_list}")
+        # build and return response
+        response = demo_pb2.ListRecommendationsResponse()
+        response.product_ids.extend(prod_list)
 
-            # Collect metrics for this service
-            rec_svc_metrics["app_recommendations_counter"].add(len(prod_list), {'recommendation.type': 'catalog'})
+        # Collect metrics for this service
+        rec_svc_metrics["app_recommendations_counter"].add(len(prod_list), {'recommendation.type': 'catalog'})
 
-            return response
+        return response
 
     def Check(self, request, context):
         return health_pb2.HealthCheckResponse(
@@ -74,52 +70,60 @@ class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
 
 
 def get_product_list(request_product_ids):
-    global first_run
-    global cached_ids
-    with tracer.start_as_current_span("get_product_list") as span:
-        max_responses = 5
+    hub = Hub.current
+    with hub.start_transaction(
+        name="get_product_list",
+        op=OP.FUNCTION,
+        source=TRANSACTION_SOURCE_COMPONENT,
+        instrumenter="otel",
+    ) as transaction:
+        with start_profiling(transaction, hub):
+            global first_run
+            global cached_ids
+            with tracer.start_as_current_span("get_product_list") as span:
+                max_responses = 5
 
-        # Formulate the list of characters to list of strings
-        request_product_ids_str = ''.join(request_product_ids)
-        request_product_ids = request_product_ids_str.split(',')
+                # Formulate the list of characters to list of strings
+                request_product_ids_str = ''.join(request_product_ids)
+                request_product_ids = request_product_ids_str.split(',')
 
-        # Feature flag scenario - Cache Leak
-        if check_feature_flag("recommendationCache"):
-            span.set_attribute("app.recommendation.cache_enabled", True)
-            if random.random() < 0.5 or first_run:
-                first_run = False
-                span.set_attribute("app.cache_hit", False)
-                logger.info("cache miss")
-                cat_response = product_catalog_stub.ListProducts(demo_pb2.Empty())
-                response_ids = [x.id for x in cat_response.products]
-                cached_ids = cached_ids + response_ids
-                cached_ids = cached_ids + cached_ids[:len(cached_ids) // 4]
-                product_ids = cached_ids
-            else:
-                span.set_attribute("app.cache_hit", True)
-                logger.info("cache hit")
-                product_ids = cached_ids
-        else:
-            span.set_attribute("app.recommendation.cache_enabled", False)
-            cat_response = product_catalog_stub.ListProducts(demo_pb2.Empty())
-            product_ids = [x.id for x in cat_response.products]
+                # Feature flag scenario - Cache Leak
+                if check_feature_flag("recommendationCache"):
+                    span.set_attribute("app.recommendation.cache_enabled", True)
+                    if random.random() < 0.5 or first_run:
+                        first_run = False
+                        span.set_attribute("app.cache_hit", False)
+                        logger.info("cache miss")
+                        cat_response = product_catalog_stub.ListProducts(demo_pb2.Empty())
+                        response_ids = [x.id for x in cat_response.products]
+                        cached_ids = cached_ids + response_ids
+                        cached_ids = cached_ids + cached_ids[:len(cached_ids) // 4]
+                        product_ids = cached_ids
+                    else:
+                        span.set_attribute("app.cache_hit", True)
+                        logger.info("cache hit")
+                        product_ids = cached_ids
+                else:
+                    span.set_attribute("app.recommendation.cache_enabled", False)
+                    cat_response = product_catalog_stub.ListProducts(demo_pb2.Empty())
+                    product_ids = [x.id for x in cat_response.products]
 
-        span.set_attribute("app.products.count", len(product_ids))
+                span.set_attribute("app.products.count", len(product_ids))
 
-        # Create a filtered list of products excluding the products received as input
-        filtered_products = list(set(product_ids) - set(request_product_ids))
-        num_products = len(filtered_products)
-        span.set_attribute("app.filtered_products.count", num_products)
-        num_return = min(max_responses, num_products)
+                # Create a filtered list of products excluding the products received as input
+                filtered_products = list(set(product_ids) - set(request_product_ids))
+                num_products = len(filtered_products)
+                span.set_attribute("app.filtered_products.count", num_products)
+                num_return = min(max_responses, num_products)
 
-        # Sample list of indicies to return
-        indices = random.sample(range(num_products), num_return)
-        # Fetch product ids from indices
-        prod_list = [filtered_products[i] for i in indices]
+                # Sample list of indicies to return
+                indices = random.sample(range(num_products), num_return)
+                # Fetch product ids from indices
+                prod_list = [filtered_products[i] for i in indices]
 
-        span.set_attribute("app.filtered_products.list", prod_list)
+                span.set_attribute("app.filtered_products.list", prod_list)
 
-        return prod_list
+                return prod_list
 
 
 def must_map_env(key: str):
