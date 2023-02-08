@@ -389,7 +389,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 70M
+          memory: 200M
     restart: unless-stopped
     ports:
       - "${PAYMENT_SERVICE_PORT}"
