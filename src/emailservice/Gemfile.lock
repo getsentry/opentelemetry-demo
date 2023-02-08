@@ -1,9 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.2.0)
     google-protobuf (3.21.10)
     google-protobuf (3.21.10-x86_64-darwin)
+    google-protobuf (3.21.10-x86_64-linux)
     googleapis-common-protos-types (1.4.0)
       google-protobuf (~> 3.14)
     mail (2.7.1)
@@ -55,10 +56,10 @@ GEM
     rack-protection (2.2.3)
       rack
     ruby2_keywords (0.0.5)
-    sentry-opentelemetry (5.7.0)
+    sentry-opentelemetry (5.8.0)
       opentelemetry-sdk (~> 1.0)
-      sentry-ruby (~> 5.7.0)
-    sentry-ruby (5.7.0)
+      sentry-ruby (~> 5.8.0)
+    sentry-ruby (5.8.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
     sinatra (2.2.3)
       mustermann (~> 2.0)
@@ -71,6 +72,7 @@ GEM
 PLATFORMS
   arm64-darwin-21
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   net-smtp (~> 0.3)
