@@ -3,6 +3,7 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 import * as Sentry from '@sentry/nextjs';
+import { HttpClient } from '@sentry/integrations';
 
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN_CLIENT,
@@ -29,6 +30,7 @@ Sentry.init({
         enableInteractions: true,
       },
     }),
+    new HttpClient(),
   ],
   // ...
   // Note: if you want to override the automatic release value, do not set a
