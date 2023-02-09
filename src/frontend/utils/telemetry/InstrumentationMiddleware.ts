@@ -1,6 +1,10 @@
 import { NextApiHandler } from 'next';
 import { context, Exception, propagation, Span, SpanKind, SpanStatusCode, trace } from '@opentelemetry/api';
 import { SemanticAttributes } from '@opentelemetry/semantic-conventions';
+import { metrics } from '@opentelemetry/api';
+
+const meter = metrics.getMeter('frontend');
+const requestCounter = meter.createCounter('app.frontend.requests');
 
 const InstrumentationMiddleware = (handler: NextApiHandler): NextApiHandler => {
   return async (request, response) => {
@@ -42,6 +46,7 @@ const InstrumentationMiddleware = (handler: NextApiHandler): NextApiHandler => {
       }
       throw error;
     } finally {
+      requestCounter.add(1, { method, target, status: response.statusCode });
       if (span) {
         span.end();
       }
