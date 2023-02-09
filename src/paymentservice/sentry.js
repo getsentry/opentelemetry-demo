@@ -10,6 +10,7 @@ function initSentry() {
     // profilesSampleRate: 1.0,
     // set the instrumenter to use OpenTelemetry instead of Sentry
     instrumenter: "otel",
+    includeLocalVariables: true,
     // integrations: [new ProfilingIntegration()],
     // ...
   });
