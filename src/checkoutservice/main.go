@@ -412,6 +412,18 @@ func (cs *checkoutService) prepOrderItems(ctx context.Context, items []*pb.CartI
 	cl := pb.NewProductCatalogServiceClient(conn)
 
 	for i, item := range items {
+		if item.GetProductId() == "HQTGWGPNH4" {
+			err := fmt.Errorf("invalid product #%q", item.GetProductId())
+
+			hub := sentry.CurrentHub()
+			hub.Client().CaptureException(
+				err,
+				&sentry.EventHint{Context: ctx},
+				nil,
+			)
+			return nil, err
+		}
+
 		product, err := cl.GetProduct(ctx, &pb.GetProductRequest{Id: item.GetProductId()})
 		if err != nil {
 			return nil, fmt.Errorf("failed to get product #%q", item.GetProductId())
