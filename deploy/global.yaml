@@ -91,6 +91,9 @@ components:
     resources:
       requests:
         cpu: 50m
+        memory: 400Mi
+      limits:
+        memory: 400Mi
   frontendProxy:
     resources:
       requests:
