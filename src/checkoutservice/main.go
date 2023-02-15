@@ -140,13 +140,11 @@ type checkoutService struct {
 }
 
 func main() {
-	transport := sentry.NewHTTPSyncTransport()
 	sentry.Init(sentry.ClientOptions{
 		Dsn:              "",
 		EnableTracing:    true,
 		TracesSampleRate: 1.0,
 		Debug:            true,
-		Transport:        transport,
 	})
 
 	var port string
