@@ -412,6 +412,7 @@ func (cs *checkoutService) prepOrderItems(ctx context.Context, items []*pb.CartI
 	cl := pb.NewProductCatalogServiceClient(conn)
 
 	for i, item := range items {
+		// Intentionally raise an error on "The Comet Book" item
 		if item.GetProductId() == "HQTGWGPNH4" {
 			err := fmt.Errorf("invalid product #%q", item.GetProductId())
 
