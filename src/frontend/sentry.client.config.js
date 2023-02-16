@@ -25,11 +25,6 @@ Sentry.init({
       maskAllText: true,
       blockAllMedia: true,
     }),
-    new Sentry.BrowserTracing({
-      _experiments: {
-        enableInteractions: true,
-      },
-    }),
     new HttpClient(),
   ],
   // ...
