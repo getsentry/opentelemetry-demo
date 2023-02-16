@@ -18,6 +18,11 @@ Sentry.init({
     console.log(JSON.stringify(transaction, null, 2));
     return transaction;
   },
+  beforeBreadcrumb: breadcrumb => {
+    if (breadcrumb.category === 'console') {
+      return null;
+    }
+  },
   // integrations: [new ProfilingIntegration()],
   // ...
   // Note: if you want to override the automatic release value, do not set a
