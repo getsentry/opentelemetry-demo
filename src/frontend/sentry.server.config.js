@@ -14,6 +14,10 @@ Sentry.init({
   // profilesSampleRate: 1.0,
   environment: process.env.SENTRY_ENVIRONMENT,
   includeLocalVariables: true,
+  beforeSendTransaction: transaction => {
+    console.log(JSON.stringify(transaction, null, 2));
+    return transaction;
+  },
   // integrations: [new ProfilingIntegration()],
   // ...
   // Note: if you want to override the automatic release value, do not set a
