@@ -55,8 +55,10 @@ async function runWithSpan(parentSpan: Span, fn: () => Promise<unknown>) {
   try {
     return await context.with(ctx, fn);
   } catch (error) {
-    parentSpan.recordException(error as Exception);
-    parentSpan.setStatus({ code: SpanStatusCode.ERROR });
+    if (parentSpan) {
+      parentSpan.recordException(error as Exception);
+      parentSpan.setStatus({ code: SpanStatusCode.ERROR });
+    }
 
     throw error;
   }
