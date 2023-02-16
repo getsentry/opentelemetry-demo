@@ -14,6 +14,11 @@ Sentry.init({
   // profilesSampleRate: 1.0,
   environment: process.env.SENTRY_ENVIRONMENT,
   includeLocalVariables: true,
+  integrations: [
+    new Sentry.Integrations.LocalVariables({
+      captureAllExceptions: true,
+    }),
+  ],
   beforeSendTransaction: transaction => {
     console.log(JSON.stringify(transaction, null, 2));
     return transaction;
