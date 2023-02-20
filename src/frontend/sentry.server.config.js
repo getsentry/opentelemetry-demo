@@ -13,21 +13,12 @@ Sentry.init({
   tracesSampleRate: 1.0,
   // profilesSampleRate: 1.0,
   environment: process.env.SENTRY_ENVIRONMENT,
-  includeLocalVariables: true,
-  integrations: [
-    new Sentry.Integrations.LocalVariables({
-      captureAllExceptions: true,
-    }),
-  ],
-  beforeSendTransaction: transaction => {
-    console.log(JSON.stringify(transaction, null, 2));
-    return transaction;
-  },
-  beforeBreadcrumb: breadcrumb => {
-    if (breadcrumb.category === 'console') {
-      return null;
-    }
-  },
+  // includeLocalVariables: true,
+  // integrations: [
+  //   new Sentry.Integrations.LocalVariables({
+  //     captureAllExceptions: true,
+  //   }),
+  // ],
   // integrations: [new ProfilingIntegration()],
   // ...
   // Note: if you want to override the automatic release value, do not set a
