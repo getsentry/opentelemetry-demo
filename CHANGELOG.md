@@ -7,6 +7,23 @@ release.
 
 ## Unreleased
 
+* [cart] use 60m TTL for cart entries in redis
+  ([#779](https://github.com/open-telemetry/opentelemetry-demo/pull/779))
+* spanmetrics dashboard service&operation rates & latencies
+  ([#787](https://github.com/open-telemetry/opentelemetry-demo/pull/787))
+* [bug] fixing quoteservice metrics exporting (PHP)
+  ([#793](https://github.com/open-telemetry/opentelemetry-demo/pull/793))
+* Added app.session.id attribute to frontend spans
+  ([#795](https://github.com/open-telemetry/opentelemetry-demo/pull/795))
+* Add logs for Ad service and Recommendation service
+  ([#796](https://github.com/open-telemetry/opentelemetry-demo/pull/796))
+* Opentelemetry Collector Data Flow Dashboard
+  ([#797](https://github.com/open-telemetry/opentelemetry-demo/pull/797))
+* Fixed shipping update in the frontend UI when number of products in cart changes
+  ([#799](https://github.com/open-telemetry/opentelemetry-demo/pull/799))
+
+## v0.1.0
+
 * The initial code base is donated from a
 [fork](https://github.com/julianocosta89/opentelemetry-microservices-demo) of
 the [Google microservices
@@ -19,6 +36,9 @@ significant modifications will be credited to OpenTelemetry Authors.
 ([#82](https://github.com/open-telemetry/opentelemetry-demo/pull/82))
 * Rewrote shipping service in Rust
 ([#35](https://github.com/open-telemetry/opentelemetry-demo/issues/35))
+
+## v0.2.0
+
 * Added feature flag service implementation
 ([#141](https://github.com/open-telemetry/opentelemetry-demo/pull/141))
 * Added additional attributes to productcatalog service
@@ -35,6 +55,9 @@ significant modifications will be credited to OpenTelemetry Authors.
 ([#164](https://github.com/open-telemetry/opentelemetry-demo/pull/164))
 * Added Grafana service and enhanced metric experience
 ([#175](https://github.com/open-telemetry/opentelemetry-demo/pull/175))
+
+## v0.3.0
+
 * Enhanced cart service attributes
 ([#183](https://github.com/open-telemetry/opentelemetry-demo/pull/183))
 * Re-implemented currency service using C++
@@ -87,12 +110,18 @@ significant modifications will be credited to OpenTelemetry Authors.
 ([#332](https://github.com/open-telemetry/opentelemetry-demo/pull/332))
 * Add `synthetic_request=true` baggage to load generator requests
 ([#331](https://github.com/open-telemetry/opentelemetry-demo/pull/331))
+
+## v0.4.0
+
 * Add span events to shipping service
 ([#344](https://github.com/open-telemetry/opentelemetry-demo/pull/344))
 * Add PHP quote service
 ([#345](https://github.com/open-telemetry/opentelemetry-demo/pull/345))
 * Improve initial run time, without a build
 ([#362](https://github.com/open-telemetry/opentelemetry-demo/pull/362))
+
+## v0.5.0
+
 * Add custom span and custom span attributes for Feature Flag Service
 ([#371](https://github.com/open-telemetry/opentelemetry-demo/pull/371))
 * Change Cart Service to be async
@@ -111,6 +140,9 @@ significant modifications will be credited to OpenTelemetry Authors.
 ([#409](https://github.com/open-telemetry/opentelemetry-demo/pull/409))
 * Added hero scenario metric to Checkout Service on cache leak
 ([#339](https://github.com/open-telemetry/opentelemetry-demo/pull/339))
+
+## v0.6.0-beta
+
 * Added basic metrics support for recommendation service (Python)
 ([#416](https://github.com/open-telemetry/opentelemetry-demo/pull/416))
 * Added metrics auto-instrumentation + minor metrics refactor for recommendation
@@ -118,12 +150,18 @@ significant modifications will be credited to OpenTelemetry Authors.
  [#432](https://github.com/open-telemetry/opentelemetry-demo/pull/432)
 * Replaced the Jaeger exporter to the OTLP exporter in the OTel Collector
 ([#435](https://github.com/open-telemetry/opentelemetry-demo/pull/435))
+
+## v0.6.1-beta
+
 * Set resource memory limits for all services
 ([#460](https://github.com/open-telemetry/opentelemetry-demo/pull/460))
 * Added cache scenario to recommendation service
 ([#455](https://github.com/open-telemetry/opentelemetry-demo/pull/455))
 * Update cartservice Dockerfile to support ARM64
 ([#439](https://github.com/open-telemetry/opentelemetry-demo/pull/439))
+
+## v0.7.0-beta
+
 * Update shippingservice to add resource data to spans
 ([#504](https://github.com/open-telemetry/opentelemetry-demo/pull/504))
 * Add Envoy as reverse proxy for all user-facing services
@@ -132,6 +170,9 @@ significant modifications will be credited to OpenTelemetry Authors.
 ([#513](https://github.com/open-telemetry/opentelemetry-demo/pull/513))
 * Added frontend instrumentation exporter custom url
 ([#512](https://github.com/open-telemetry/opentelemetry-demo/pull/512))
+
+## v1.1.0
+
 * Replaced PHP-CLI to PHP-Apache for a more realistic service
 ([#563](https://github.com/open-telemetry/opentelemetry-demo/pull/563))
 * Optimize currencyservice build time with parallel build jobs
@@ -140,6 +181,9 @@ significant modifications will be credited to OpenTelemetry Authors.
 ([#536](https://github.com/open-telemetry/opentelemetry-demo/pull/536))
 * Add basic metrics support for payment service
 ([#583](https://github.com/open-telemetry/opentelemetry-demo/pull/583))
+
+## 1.2.0
+
 * Change ZipCode data type from int to string
 ([#587](https://github.com/open-telemetry/opentelemetry-demo/pull/587))
 * Pass product's `categories` as an input for the Ad service
@@ -154,10 +198,15 @@ significant modifications will be credited to OpenTelemetry Authors.
 ([#613](https://github.com/open-telemetry/opentelemetry-demo/pull/613))
 * Build Kafka image
 ([#617](https://github.com/open-telemetry/opentelemetry-demo/pull/617))
+
+## 1.3.0
+
 * Use `frontend-web` as service name for browser/web requests
 ([#628](https://github.com/open-telemetry/opentelemetry-demo/pull/628))
 * Update `quoteservice` to use opentelemetry-php beta release
 ([#644](https://github.com/open-telemetry/opentelemetry-demo/pull/644))
+* Add build for arm64 arch
+([#644](https://github.com/open-telemetry/opentelemetry-demo/pull/657))
 * Add synthetic attribute flag to front end instrumentation
 ([#631](https://github.com/open-telemetry/opentelemetry-demo/pull/631))
 * Fix the total sum on the cart page
@@ -210,3 +259,27 @@ significant modifications will be credited to OpenTelemetry Authors.
 ([#705](https://github.com/open-telemetry/opentelemetry-demo/pull/705))
 * Enable exemplar support in the metrics exporter, Prometheus, and Grafana
 ([#704](https://github.com/open-telemetry/opentelemetry-demo/pull/704))
+* Add cross-compilation for shipping service
+([#715](https://github.com/open-telemetry/opentelemetry-demo/issues/715))
+
+## 1.3.1
+
+* [docs] Drop docs folder as step in migration to OTel website
+  ([#729](https://github.com/open-telemetry/opentelemetry-demo/issues/729))
+* rename proto package from hipstershop to oteldemo
+  ([#740](https://github.com/open-telemetry/opentelemetry-demo/pull/740))
+* Removed unnecessary code from Program.cs
+  ([#754](https://github.com/open-telemetry/opentelemetry-demo/pull/754))
+* feature flag service: update the dependency
+  tls_certificate_check and bump to OTP-25
+  ([#756](https://github.com/open-telemetry/opentelemetry-demo/pull/756))
+* Bump up OTEL Java Agent version to 1.23.0
+  ([#757](https://github.com/open-telemetry/opentelemetry-demo/pull/757))
+* Add counter metric to currency service (C++)
+  ([#759](https://github.com/open-telemetry/opentelemetry-demo/issues/759))
+* Use browserDetector to populate browser info to frontend-web telemetry
+  ([#760](https://github.com/open-telemetry/opentelemetry-demo/pull/760))
+* [chore] update for Mac M2 architecture
+  ([#764](https://github.com/open-telemetry/opentelemetry-demo/pull/764))
+* [chore] align memory limits with Helm chart
+  ([#781](https://github.com/open-telemetry/opentelemetry-demo/pull/781))

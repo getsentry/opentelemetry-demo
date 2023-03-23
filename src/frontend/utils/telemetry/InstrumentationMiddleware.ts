@@ -1,6 +1,25 @@
+// Copyright The OpenTelemetry Authors
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 import { NextApiHandler } from 'next';
 import { context, Exception, propagation, Span, SpanKind, SpanStatusCode, trace } from '@opentelemetry/api';
 import { SemanticAttributes } from '@opentelemetry/semantic-conventions';
+import { metrics } from '@opentelemetry/api';
+import { AttributeNames } from '../enums/AttributeNames';
+
+const meter = metrics.getMeter('frontend');
+const requestCounter = meter.createCounter('app.frontend.requests');
 
 const InstrumentationMiddleware = (handler: NextApiHandler): NextApiHandler => {
   return async (request, response) => {
@@ -33,6 +52,10 @@ const InstrumentationMiddleware = (handler: NextApiHandler): NextApiHandler => {
       span = trace.getSpan(context.active()) as Span;
     }
 
+    if (request.query['sessionId'] != null) {
+      span.setAttribute(AttributeNames.SESSION_ID, request.query['sessionId']);
+    }
+
     try {
       await runWithSpan(span, async () => handler(request, response));
     } catch (error) {
@@ -42,6 +65,7 @@ const InstrumentationMiddleware = (handler: NextApiHandler): NextApiHandler => {
       }
       throw error;
     } finally {
+      requestCounter.add(1, { method, target, status: response.statusCode });
       if (span) {
         span.end();
       }
