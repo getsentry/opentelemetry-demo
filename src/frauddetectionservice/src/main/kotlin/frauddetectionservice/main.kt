@@ -14,7 +14,6 @@
 
 package frauddetectionservice
 
-import hipstershop.Demo.*
 import io.opentelemetry.api.trace.Span
 import io.sentry.Instrumenter
 import io.sentry.Sentry
