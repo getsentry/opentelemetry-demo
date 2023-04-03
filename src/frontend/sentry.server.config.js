@@ -13,12 +13,7 @@ Sentry.init({
   tracesSampleRate: 1.0,
   // profilesSampleRate: 1.0,
   environment: process.env.SENTRY_ENVIRONMENT,
-  // includeLocalVariables: true,
-  // integrations: [
-  //   new Sentry.Integrations.LocalVariables({
-  //     captureAllExceptions: true,
-  //   }),
-  // ],
+  includeLocalVariables: true,
   // integrations: [new ProfilingIntegration()],
   // ...
   // Note: if you want to override the automatic release value, do not set a
