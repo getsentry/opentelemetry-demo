@@ -92,10 +92,10 @@ github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7
 github.com/felixge/httpsnoop v1.0.2 h1:+nS9g82KMXccJ/wp0zyRW9ZBHFETmMGtkk+2CTTrW4o=
 github.com/felixge/httpsnoop v1.0.2/go.mod h1:m8KPJKqk1gH5J9DgRY2ASl2lWCfGKXixSwevea8zH2U=
 github.com/fortytw2/leaktest v1.3.0 h1:u8491cBMTQ8ft8aeV+adlcytMZylmA5nnwwkRZjI8vw=
-github.com/getsentry/sentry-go v0.20.1-0.20230508091029-ce90464c17af h1:yqkuRYkdOijB0qKTnaIcSNP6UxdYEoTdu86M1meMwws=
-github.com/getsentry/sentry-go v0.20.1-0.20230508091029-ce90464c17af/go.mod h1:lc76E2QywIyW8WuBnwl8Lc4bkmQH4+w1gwTf25trprY=
-github.com/getsentry/sentry-go/otel v0.20.1-0.20230508091029-ce90464c17af h1:PhVooRq3sjVXfqtowUSTH7UxkPbizOASsfwe/URvHts=
-github.com/getsentry/sentry-go/otel v0.20.1-0.20230508091029-ce90464c17af/go.mod h1:fqjlwGX+Rp35DvCuQOz4Mm8K3RBaDt6BGKENpV0+tnk=
+github.com/getsentry/sentry-go v0.21.0 h1:c9l5F1nPF30JIppulk4veau90PK6Smu3abgVtVQWon4=
+github.com/getsentry/sentry-go v0.21.0/go.mod h1:lc76E2QywIyW8WuBnwl8Lc4bkmQH4+w1gwTf25trprY=
+github.com/getsentry/sentry-go/otel v0.21.0 h1:0GJViLdYYDWdSJLyFe8JMx2Aq3TOVZ4OFhn5KGDjyYQ=
+github.com/getsentry/sentry-go/otel v0.21.0/go.mod h1:jrTyKi2cVvOBH6O43PWR7dfI98t8JMBU6w1tXgXUy0Q=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
 github.com/go-errors/errors v1.4.2 h1:J6MZopCL4uSllY1OfXM374weqZFFItUbrImctkmUxIA=
 github.com/go-gl/glfw v0.0.0-20190409004039-e6da0acd62b1/go.mod h1:vR7hzQXu2zJy9AVAgeJqvqgH9Q5CA+iKCZ2gyEVpxRU=
