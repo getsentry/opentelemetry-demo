@@ -49,7 +49,7 @@ import (
 	"google.golang.org/grpc/status"
 
 	"github.com/getsentry/sentry-go"
-	"github.com/getsentry/sentry-go/otel"
+	sentryotel "github.com/getsentry/sentry-go/otel"
 )
 
 var (
@@ -116,10 +116,11 @@ func initMeterProvider() *sdkmetric.MeterProvider {
 
 func main() {
 	sentry.Init(sentry.ClientOptions{
-		Dsn:              "",
-		EnableTracing:    true,
-		TracesSampleRate: 1.0,
-		Debug:            true,
+		Dsn:                "",
+		EnableTracing:      true,
+		TracesSampleRate:   1.0,
+		ProfilesSampleRate: 1.0,
+		Debug:              true,
 	})
 
 	tp := initTracerProvider()
