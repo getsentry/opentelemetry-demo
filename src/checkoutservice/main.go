@@ -144,7 +144,7 @@ func main() {
 		Dsn:                "",
 		EnableTracing:      true,
 		TracesSampleRate:   1.0,
-		ProfilesSampleRate: 1.0,
+		ProfilesSampleRate: 0.0,
 		Debug:              true,
 	})
 
