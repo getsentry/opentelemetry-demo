@@ -10,8 +10,8 @@ require (
 )
 
 require (
-	github.com/getsentry/sentry-go v0.22.1-0.20230622110118-b0c2fa5b021b
-	github.com/getsentry/sentry-go/otel v0.22.1-0.20230622110118-b0c2fa5b021b
+	github.com/getsentry/sentry-go v0.22.1-0.20230706083219-bcd29eb92ad9
+	github.com/getsentry/sentry-go/otel v0.22.1-0.20230706083219-bcd29eb92ad9
 	go.opentelemetry.io/contrib/instrumentation/runtime v0.37.0
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v0.34.0
 	go.opentelemetry.io/otel/metric v0.34.0
