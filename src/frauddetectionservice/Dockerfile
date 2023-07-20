@@ -1,3 +1,7 @@
+# Copyright The OpenTelemetry Authors
+# SPDX-License-Identifier: Apache-2.0
+
+
 FROM gradle:7-jdk17 AS builder
 
 WORKDIR /usr/src/app/
@@ -10,7 +14,7 @@ RUN gradle shadowJar
 
 FROM gcr.io/distroless/java17-debian11
 
-ARG version=1.22.1
+ARG version=1.23.0
 WORKDIR /usr/src/app/
 
 COPY --from=builder /usr/src/app/build/libs/frauddetectionservice-1.0-all.jar ./
