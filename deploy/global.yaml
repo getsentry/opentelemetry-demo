@@ -1,17 +1,8 @@
 # General (non-Sentry-specific) overrides for opentelemetry-demo Helm chart (https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-demo)
 ---
-observability:
-  otelcol:
-    enabled: true
-  prometheus:
-    enabled: true
-  grafana:
-    enabled: true
-  jaeger:
-    enabled: true
-
 prometheus:
   # TODO(tonyo): run in the otel nodepool
+  enabled: true
   rbac:
     create: false
   serverFiles:
@@ -27,12 +18,14 @@ prometheus:
                 - "otel-demo-otelcol:8888"
 grafana:
   # TODO(tonyo): run in the otel nodepool
+  enabled: true
   rbac:
     create: false
     pspEnabled: false
 
 jaeger:
   # TODO(tonyo): run in the otel nodepool
+  enabled: true
   allInOne:
     resources:
       requests:
