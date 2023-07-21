@@ -5,6 +5,13 @@ prometheus:
   enabled: true
   rbac:
     create: false
+  server:
+    resources:
+      requests:
+        cpu: 200m
+        memory: 400Mi
+      limits:
+        memory: 400Mi
   serverFiles:
     prometheus.yml:
       scrape_configs:
@@ -32,6 +39,15 @@ jaeger:
         cpu: 50m
       limits:
         memory: 350Mi
+
+opentelemetry-collector:
+  enabled: true
+  resources:
+    requests:
+      cpu: 100m
+      memory: 200Mi
+    limits:
+      memory: 200Mi
 
 default:
   # Run all demo components on a separate node pool
@@ -80,6 +96,9 @@ components:
     resources:
       requests:
         cpu: 50m
+        memory: 300Mi
+      limits:
+        memory: 300Mi
   frontend:
     resources:
       requests:
@@ -109,6 +128,9 @@ components:
     resources:
       requests:
         cpu: 50m
+        memory: 50Mi
+      limits:
+        memory: 50Mi
   quoteService:
     resources:
       requests:
