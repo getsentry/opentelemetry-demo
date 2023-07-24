@@ -16,6 +16,7 @@ using OpenTelemetry.Metrics;
 using OpenTelemetry.ResourceDetectors.Container;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
+
 using Sentry;
 using Sentry.OpenTelemetry;
 
