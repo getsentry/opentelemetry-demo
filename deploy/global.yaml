@@ -1,19 +1,17 @@
 # General (non-Sentry-specific) overrides for opentelemetry-demo Helm chart (https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-demo)
 ---
-observability:
-  otelcol:
-    enabled: true
-  prometheus:
-    enabled: true
-  grafana:
-    enabled: true
-  jaeger:
-    enabled: true
-
 prometheus:
   # TODO(tonyo): run in the otel nodepool
+  enabled: true
   rbac:
     create: false
+  server:
+    resources:
+      requests:
+        cpu: 200m
+        memory: 400Mi
+      limits:
+        memory: 400Mi
   serverFiles:
     prometheus.yml:
       scrape_configs:
@@ -27,18 +25,29 @@ prometheus:
                 - "otel-demo-otelcol:8888"
 grafana:
   # TODO(tonyo): run in the otel nodepool
+  enabled: true
   rbac:
     create: false
     pspEnabled: false
 
 jaeger:
   # TODO(tonyo): run in the otel nodepool
+  enabled: true
   allInOne:
     resources:
       requests:
         cpu: 50m
       limits:
         memory: 350Mi
+
+opentelemetry-collector:
+  enabled: true
+  resources:
+    requests:
+      cpu: 100m
+      memory: 200Mi
+    limits:
+      memory: 200Mi
 
 default:
   # Run all demo components on a separate node pool
@@ -87,6 +96,9 @@ components:
     resources:
       requests:
         cpu: 50m
+        memory: 300Mi
+      limits:
+        memory: 300Mi
   frontend:
     resources:
       requests:
@@ -116,6 +128,9 @@ components:
     resources:
       requests:
         cpu: 50m
+        memory: 50Mi
+      limits:
+        memory: 50Mi
   quoteService:
     resources:
       requests:
