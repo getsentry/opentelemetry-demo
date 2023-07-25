@@ -7,6 +7,7 @@ using cartservice.featureflags;
 using cartservice.services;
 
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -15,6 +16,9 @@ using OpenTelemetry.Metrics;
 using OpenTelemetry.ResourceDetectors.Container;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
+
+using Sentry;
+using Sentry.OpenTelemetry;
 
 var builder = WebApplication.CreateBuilder(args);
 string redisAddress = builder.Configuration["REDIS_ADDR"];
@@ -47,7 +51,8 @@ builder.Services.AddOpenTelemetry()
         .AddAspNetCoreInstrumentation()
         .AddGrpcClientInstrumentation()
         .AddHttpClientInstrumentation()
-        .AddOtlpExporter())
+        .AddOtlpExporter()
+        .AddSentry())
     .WithMetrics(meterBuilder => meterBuilder
         .AddRuntimeInstrumentation()
         .AddAspNetCoreInstrumentation()
@@ -56,6 +61,15 @@ builder.Services.AddOpenTelemetry()
 builder.Services.AddGrpc();
 builder.Services.AddGrpcHealthChecks()
     .AddCheck("Sample", () => HealthCheckResult.Healthy());
+
+builder.WebHost.UseSentry(options =>
+{
+    options.EnableTracing = true;
+    options.TracesSampleRate = 1.0;
+    options.UseOpenTelemetry();
+    options.Debug = true;
+    options.DiagnosticLevel = SentryLevel.Debug;
+});
 
 var app = builder.Build();
 
