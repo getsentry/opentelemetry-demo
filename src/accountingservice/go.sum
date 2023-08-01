@@ -13,10 +13,10 @@ github.com/eapache/go-xerial-snappy v0.0.0-20230111030713-bf00bc1b83b6/go.mod h1
 github.com/eapache/queue v1.1.0 h1:YOEu7KNc61ntiQlcEeUIoDTJ2o8mQznoNvUhiigpIqc=
 github.com/eapache/queue v1.1.0/go.mod h1:6eCeP0CKFpHLu8blIFXhExK/dRa7WDZfr6jVFPTqq+I=
 github.com/fortytw2/leaktest v1.3.0 h1:u8491cBMTQ8ft8aeV+adlcytMZylmA5nnwwkRZjI8vw=
-github.com/getsentry/sentry-go v0.22.0 h1:XNX9zKbv7baSEI65l+H1GEJgSeIC1c7EN5kluWaP6dM=
-github.com/getsentry/sentry-go v0.22.0/go.mod h1:lc76E2QywIyW8WuBnwl8Lc4bkmQH4+w1gwTf25trprY=
-github.com/getsentry/sentry-go/otel v0.22.0 h1:6ioHUtWk5IVqdIZppUI0hhm0f/+XTsT+yu6xqWCYULw=
-github.com/getsentry/sentry-go/otel v0.22.0/go.mod h1:V6d/p0sKN9OLyFeaQAx8RIc/2Uf3w6h65d+Pzx3qkmo=
+github.com/getsentry/sentry-go v0.22.1-0.20230727085217-dde4d3606608 h1:BS97hPRcBMatCk6ztBuS3Bs92XB5FpFX5pRQqAECLSc=
+github.com/getsentry/sentry-go v0.22.1-0.20230727085217-dde4d3606608/go.mod h1:lc76E2QywIyW8WuBnwl8Lc4bkmQH4+w1gwTf25trprY=
+github.com/getsentry/sentry-go/otel v0.22.1-0.20230727085217-dde4d3606608 h1:e06CB3WLBZvme/OY9N40bI1kmjtQRyllFmQgy0WkO9M=
+github.com/getsentry/sentry-go/otel v0.22.1-0.20230727085217-dde4d3606608/go.mod h1:V6d/p0sKN9OLyFeaQAx8RIc/2Uf3w6h65d+Pzx3qkmo=
 github.com/go-errors/errors v1.4.2 h1:J6MZopCL4uSllY1OfXM374weqZFFItUbrImctkmUxIA=
 github.com/go-logr/logr v1.2.2/go.mod h1:jdQByPbusPIv2/zmleS9BjJVeZ6kBagPoEUsqbVz/1A=
 github.com/go-logr/logr v1.2.4 h1:g01GSCwiDw2xSZfjJ2/T9M+S6pFdcNtFYsp+Y43HYDQ=

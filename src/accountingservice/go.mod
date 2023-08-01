@@ -4,8 +4,8 @@ go 1.19
 
 require (
 	github.com/Shopify/sarama v1.38.1
-	github.com/getsentry/sentry-go v0.22.0
-	github.com/getsentry/sentry-go/otel v0.22.0
+	github.com/getsentry/sentry-go v0.22.1-0.20230727085217-dde4d3606608
+	github.com/getsentry/sentry-go/otel v0.22.1-0.20230727085217-dde4d3606608
 	github.com/golang/protobuf v1.5.3
 	github.com/sirupsen/logrus v1.9.3
 	go.opentelemetry.io/contrib/instrumentation/github.com/Shopify/sarama/otelsarama v0.42.0
