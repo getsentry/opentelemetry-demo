@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/Shopify/sarama v1.38.1
-	github.com/getsentry/sentry-go v0.23.1-0.20230905082348-edbee8292a27
+	github.com/getsentry/sentry-go v0.23.1-0.20230905081744-fe4e7d6a8f2a
 	github.com/getsentry/sentry-go/otel v0.23.1-0.20230905081744-fe4e7d6a8f2a
 	github.com/golang/protobuf v1.5.3
 	github.com/google/uuid v1.3.0
